@@ -1,5 +1,6 @@
 import '../styles/globals.css'
-import { AuthUserProvider } from '../context/AuthorUserContext';
+import { AuthUserProvider } from '../context/AuthUserContext'
+
 function MyApp({ Component, pageProps }) {
   return <AuthUserProvider><Component {...pageProps} /></AuthUserProvider>
 }

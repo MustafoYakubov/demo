@@ -6,36 +6,42 @@ import Head from 'next/head';
 import Link from 'next/link'
 import styles from '../styles/Auth.module.css'
 
-export default function Login() {
-    const [email, setEmail] = useState("") 
-    const [password, setPassword] = useState("")  
+const Register = () => {
+    const [email, setEmail] = useState("") //email uchun state
+    const [passwordOne, setPasswordOne] = useState("")  // birinchi parol inputi
+    const [passwordTwo, setPasswordTwo] = useState("") // ikkinchi parol inputi
     const router = useRouter()
     const [error, setError] = useState(null)
 
-    const { signInWithEmailAndPassword } = useAuth()
+
+    const { createUserWithEmailAndPassword } = useAuth()
 
     const onSubmit = event => {
         setError(null)
-        signInWithEmailAndPassword(email, password)
-        .then(authUser => {
-            router.push("/teslaaccount") 
-        })
-        .catch(error => {
-            setError(error.message)
-        })
+        if(passwordOne === passwordTwo)
+            createUserWithEmailAndPassword(email, passwordOne)
+            .then(authUser => {
+                router.push("/teslaaccount") // profilga yonaltiramiz
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+        
+        else
+            setError("Passwords don't match!")
         event.preventDefault()
     }
 
-    return(
+    return (
         <>
             <Head>
-                <title>Sign In</title>
+                <title>Sign Up</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
             </Head>
             <Navbar />
             <div className={styles.login}>
                 <form className={styles.form} onSubmit={onSubmit}>
-                    <h2 className={styles.signInText}>Sign In</h2>
+                    <h2 className={styles.signInText}>Sign Up</h2>
                     {error && <h4 className={styles.errorText}>{error}</h4>}
 
                     <label htmlFor="email">Email Address</label>
@@ -46,27 +52,37 @@ export default function Login() {
                         name="email"
                         className={styles.input}
                     />
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="passwordOne">Password</label>
                     <input 
                         type="password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                        name="password"
+                        value={passwordOne}
+                        onChange={(event) => setPasswordOne(event.target.value)}
+                        name="passwordOne"
                         className={styles.input}
                     />
-                    <button className={styles.loginBtn}>Login</button>
+                    <label htmlFor="passwordTwo">Confirm Password</label>
+                    <input 
+                        type="password"
+                        value={passwordTwo}
+                        onChange={(event) => setPasswordTwo(event.target.value)}
+                        name="passwordTwo"
+                        className={styles.input}
+                    />
+                    <button className={styles.loginBtn}>Create Account</button>
                 </form>
                 <hr className={styles.line} />
                 <div className={styles.signUpArea}>
                     <Link href={{
-                        pathname: "/sign_up"
+                        pathname: "/sign_in"
                     }}>
                         <button className={styles.createAccount}>
-                            create an account
+                            Sign In
                         </button>
                     </Link>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
+
+export default Register;

@@ -1,63 +1,59 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import Head from "next/head";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import AccountNavbar from "../components/AccountNavbar/AccountNavbar";
-import { UseAuth } from "../context/AuthUserContext";
-import styles from "../styles/teslaaccount.module.scss";
-const Teslaaccount = () => {
-  const { authUser, loading, signOut } = UseAuth();
-  const router = useRouter();
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router'
+import { useAuth } from '../context/AuthUserContext';
+import Head from 'next/head'
+import styles from '../styles/Account.module.css'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import AccountNavbar from '../components/AccountNavbar';
 
-  useEffect(() => {
-    if (!loading && !authUser) router.push("/signIn");
-  }, [authUser, loading]);
+const LoggedIn = () => {
+    const { authUser, loading, signOut } = useAuth()
+    const router = useRouter()
 
-  return (
-    <>
-      {loading ? (
-        <p>Loading ... </p>
-      ) : (
+    useEffect(() => {
+        if(!loading && !authUser)
+            router.push("/sign_in")
+    }, [authUser, loading])
+
+    return (
         <>
-          <AccountNavbar />
-
-          <Head>
-            <title>Account</title>
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0"
-            />
-          </Head>
-          <div className={styles.logoInfo}>
-            {authUser && <p>You`re logged as {authUser.email}</p>}
-            <button onClick={signOut} className={styles.logOutBtn}>
-              <p>Sign Out</p>
-              <ExitToAppIcon className={styles.btnIcon} />
-            </button>
-          </div>
-          <div className={styles.carPurchase}>
-            <img
-              className={styles.modelX}
-              src="/images/modelX.png"
-              alt="modelx"
-            />
-            <h1>Model X</h1>
-            <div className={styles.headerButtons}>
-              <div className={styles.btnMain}>
-                <Link href="/">
-                  <a className={styles.btn}>Custom Order</a>
-                </Link>
-                <Link href="/">
-                  <a className={styles.btn}>exicting enventory</a>
-                </Link>
-              </div>
-            </div>
-          </div>
+            {
+                loading? 
+                <p>loading...</p>
+                :
+                <>
+                    <AccountNavbar />
+                    <Head>
+                        <title>Your Account</title>
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+                    </Head>
+                    <div className={styles.logInfo}>
+                        {authUser && <p>Youre logged as <b>{authUser.email}s  </b>email</p>}
+                        <button className={styles.logOutBtn} onClick={signOut}>
+                            <ExitToAppIcon className={styles.btnIcon} />
+                            Sign Out
+                        </button>
+                    </div>
+                    <div className={styles.carPurchase}>
+                        <img
+                            src="/images/modelX.png"
+                            alt="Model X purchase"
+                            className={styles.modelX}
+                        />
+                        <h1>Model X</h1>
+                        <div className={styles.btnMain}>
+                            <a href='#' className={styles.btn}>
+                                custom order
+                            </a>
+                            <a href='#' className={styles.btn}>
+                                existing inventory
+                            </a>
+                        </div>
+                    </div>
+                </>
+            }
         </>
-      )}
-    </>
-  );
+    );
 };
 
-export default Teslaaccount;
+export default LoggedIn;
