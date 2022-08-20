@@ -1,0 +1,53 @@
+@import "./rediractes.scss";
+.logoInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(75);
+}
+.logOutBtn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #68696d;
+  font-size: 1rem;
+}
+.btnIcon {
+  margin-left: 10px;
+}
+.carPurchase {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: rem(30);
+}
+.modelX {
+  width: 80%;
+  height: rem(425);
+  object-fit: cover;
+}
+.headerButtons {
+  display: flex;
+  .btn {
+    background-color: #3e6ae1;
+    color: #fff;
+    width: rem(250);
+    height: rem(40);
+    border-radius: rem(20);
+    font-weight: 600;
+    padding: 12px;
+    opacity: 0.9;
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+    align-items: center;
+  }
+  .btn:nth-child(2) {
+    background-color: transparent;
+    border: 2px solid rgba(23, 26, 32, 0.8);
+    color: rgba(26, 34, 48, 0.8);
+    margin-left: rem(20);
+  }
+}

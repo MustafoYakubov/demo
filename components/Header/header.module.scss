@@ -1,0 +1,242 @@
+@import "../../styles/rediractes.scss";
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Didact+Gothic&family=Inter&family=Lato:ital,wght@1,100&family=Montserrat&family=Poppins&family=Righteous&family=Work+Sans:ital,wght@1,200;1,900&display=swap");
+.section {
+  background: url("../../public/images/model-3.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.section:nth-child(3) {
+  background: url("../../public/images/model-y.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section:nth-child(4) {
+  background: url("../../public/images/model-s.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section:nth-child(5) {
+  background: url("../../public/images/model-x.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section:nth-child(6) {
+  background: url("../../public/images/solar-roof.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section:nth-child(7) {
+  background: url("../../public/images/solar-panel.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.section:nth-child(8) {
+  background: url("../../public/images/accessories.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.textArea {
+  text-align: center;
+  margin-top: rem(70);
+  h3 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 900;
+    font-family: "Montserrat", sans-serif;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+.touchless {
+  border-bottom: 1px solid #313131;
+  padding: 3px;
+  cursor: pointer;
+  transition: all 0.4 linear;
+  -webkit-transition: all 0.4 linear;
+  &:hover {
+    border-bottom-width: 2px;
+  }
+}
+.headerButtons {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.btnMain {
+  display: flex !important;
+  padding: rem(240) 0 rem(20);
+}
+
+.btn {
+  background-color: rgba(23, 26, 32, 0.8);
+  color: #ffffff;
+  width: 256px;
+  height: rem(38);
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  border-radius: rem(20);
+}
+.btn:nth-child(2) {
+  background-color: #ffffff;
+  color: #171a20cc;
+  margin-left: rem(20);
+  cursor: pointer;
+}
+.downIcon {
+  animation: iconDownAnimate 1.5s ease 0s infinite normal none running;
+  -webkit-animation: iconDownAnimate 1.5s ease 0s infinite normal none running;
+}
+@keyframes iconDownAnimate {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+@media screen and (max-width: 330px) {
+  .section {
+    display: inline-block !important;
+    padding: 0;
+  }
+  .btn {
+    background-color: rgba(23, 26, 32, 0.8);
+    opacity: unset;
+  }
+  .btnMain {
+    display: inline-block !important;
+    padding: 10.75rem 22.5px 0;
+    opacity: unset;
+  }
+  .btn {
+    width: rem(220) !important;
+    height: rem(35) !important;
+    font-size: 12px;
+  }
+  .btnMain {
+    .btn:nth-child(2) {
+      margin: 5px 0 0;
+    }
+  }
+  .textArea {
+    margin-top: 2rem;
+  }
+  .textArea p {
+    font-size: 18px;
+    width: 86%;
+    margin: auto;
+  }
+  .textArea h3 {
+    width: 100%;
+    margin: auto;
+    font-size: 1.7 rem;
+  }
+  .downIcon {
+    display: block;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 370px) {
+  .section {
+    display: inline-block !important;
+    padding: 20px;
+  }
+  .btn {
+    background-color: rgba(23, 26, 32, 0.8);
+    opacity: unset;
+  }
+  .btnMain {
+    display: inline-block !important;
+    padding: 13rem 22.5px 0;
+    opacity: unset;
+  }
+  .btn {
+    width: rem(220) !important;
+    height: rem(35) !important;
+    font-size: 12px;
+  }
+  .btnMain {
+    .btn:nth-child(2) {
+      margin: 5px 0 0;
+    }
+  }
+  .textArea {
+    margin-top: 4rem;
+  }
+  .textArea p {
+    font-size: 18px;
+    width: 86%;
+    margin: auto;
+  }
+  .textArea h3 {
+    width: 100%;
+    margin: auto;
+    font-size: 2.5rem;
+  }
+  .downIcon {
+    display: block;
+    margin: auto;
+  }
+  #access {
+    margin-right: 1rem !important;
+  }
+}
+@media screen and (max-width: 470px) {
+  .section {
+    display: inline-block !important;
+  }
+  .btn {
+    background-color: rgba(23, 26, 32, 0.8);
+    opacity: unset;
+  }
+  .btnMain {
+    display: inline-block !important;
+    padding: 23rem 16.5px 0;
+    opacity: unset;
+  }
+  .btn {
+    width: 19rem !important;
+    height: rem(35) !important;
+    font-size: 12px;
+  }
+  .btnMain {
+    .btn:nth-child(2) {
+      margin: 5px 0 0;
+    }
+  }
+  .textArea {
+    margin-top: 4rem;
+  }
+  .textArea p {
+    font-size: 19px;
+    width: 100%;
+    margin: auto;
+  }
+  .textArea h3 {
+    width: 100%;
+    margin: auto;
+    font-size: 2.5rem;
+  }
+  .downIcon {
+    display: block;
+    margin: auto;
+  }
+  #access {
+    margin-right: 1rem !important;
+  }
+}

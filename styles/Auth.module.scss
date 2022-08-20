@@ -1,0 +1,65 @@
+@import "../styles/rediractes";
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+  padding: rem(60) 0 15px;
+  font-family: "Poppins", sans-serif;
+}
+.signInText {
+  padding-bottom: rem(40);
+}
+.input {
+  width: rem(300);
+  height: rem(40);
+  padding: rem(20);
+  outline: none;
+  border: 1px solid #f4f4f4;
+  background-color: #f4f4f4;
+  border-radius: rem(50);
+  color: #393c41;
+  font-weight: 600;
+  margin-bottom: rem(30);
+}
+.loginBtn {
+  background-color: #3e6ae1;
+  border-radius: rem(50);
+  width: rem(300);
+  height: rem(50);
+  color: #ffffff;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: transparent;
+    color: #3e6ae1;
+    border: 3px solid #3e6ae1;
+  }
+}
+.line {
+  width: 25%;
+}
+.signUpArea {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 rem(35);
+}
+.createAccount {
+  background-color: transparent;
+  border: 3px solid #171a20;
+  color: #171a20;
+  border-radius: rem(50);
+  text-transform: uppercase;
+  cursor: pointer;
+  width: rem(300);
+  height: rem(50);
+  &:hover {
+    background-color: #000;
+    color: #ffffff;
+  }
+}
+.errorText {
+  color: #ea2f1c;
+  margin-top: 0;
+}
