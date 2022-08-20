@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router'
 import { useAuth } from '../context/AuthUserContext';
 import Head from 'next/head'
-import styles from '../styles/Account.module.css'
+import styles from '../styles/teslaaccount.module.scss'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import AccountNavbar from '../components/AccountNavbar';
+import AccountNavbar from '../components/AccountNavbar/AccountNavbar';
 
 const LoggedIn = () => {
     const { authUser, loading, signOut } = useAuth()
@@ -12,7 +12,7 @@ const LoggedIn = () => {
 
     useEffect(() => {
         if(!loading && !authUser)
-            router.push("/sign_in")
+            router.push("/signIn")
     }, [authUser, loading])
 
     return (
