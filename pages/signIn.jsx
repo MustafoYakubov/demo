@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { UseAuth } from "../context/AuthUserContext";
+import { UseAuth } from "../context/AuthorUserContext";
 import Navbar from "../layout/Navbar/Navbar";
 import Head from "next/head";
 import Link from "next/link";
